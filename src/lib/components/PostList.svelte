@@ -1,9 +1,13 @@
 <script>
+  import Post from './Post.svelte';
+
   export let posts;
+
+  console.log(posts);
 </script>
 
-<ul>
+<div class="grid">
   {#each posts as post}
-    <li>{post.title}</li>
+    <Post {post} />
   {/each}
-</ul>
+</div>
