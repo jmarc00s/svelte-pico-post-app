@@ -8,13 +8,22 @@
   const handleOnCreatePost = ({ detail }) => {
     posts = [...posts, detail];
   };
+
+  const handleMarkedAsChecked = ({ detail }) => {
+    const index = posts.indexOf(detail);
+
+    posts = posts.map((post, idx) => {
+      if (index === idx) return { ...post, checked: true };
+      return post;
+    });
+  };
 </script>
 
 <Container>
   <h1 class="title">Svelte Post app</h1>
-  <h4 class="text-center">Manage your posts with svelte.</h4>
+  <h6 class="text-center">Manage your posts with svelte.</h6>
   <PostForm on:onCreatePost={handleOnCreatePost} />
-  <PostList {posts} />
+  <PostList {posts} on:onMarkAsChecked={handleMarkedAsChecked} />
 </Container>
 
 <style>
