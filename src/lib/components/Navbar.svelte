@@ -1,10 +1,14 @@
+<script>
+  import { Link } from 'svelte-navigator';
+</script>
+
 <header>
   <nav>
     <ul>
-      <li><strong>Svelte post app</strong></li>
+      <li><strong><Link to="/">Svelte posts app</Link></strong></li>
     </ul>
     <ul>
-      <li><a href="#">Add a post</a></li>
+      <li><Link to="/posts/add">Add a post</Link></li>
     </ul>
   </nav>
 </header>

@@ -9,10 +9,15 @@
   <header>
     <div>
       <h4>{post.title}</h4>
-      {#if post.checked}
-        <Badge color="success">Checked</Badge>
+      {#if post.checked && post.checkedDate}
+        <Badge color="success">
+          Seen at {post.checkedDate.toLocaleDateString()}
+          {post.checkedDate.toLocaleTimeString()}
+        </Badge>
+      {:else if post.checked}
+        <Badge color="success">Seen</Badge>
       {:else}
-        <Badge color="error">Not checked</Badge>
+        <Badge color="error">Not seen yet</Badge>
       {/if}
     </div>
   </header>
@@ -22,7 +27,7 @@
       <button
         transition:fade={{ duration: 300 }}
         on:click={() => markPostAsViewed(post)}
-        class="secondary">Mark as checked</button
+        class="secondary">Mark as Seen</button
       >
     {/if}
   </footer>
