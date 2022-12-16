@@ -2,8 +2,13 @@
   import Container from './lib/components/Container.svelte';
   import PostForm from './lib/components/PostForm.svelte';
   import PostList from './lib/components/PostList.svelte';
+  import { store } from './store';
 
   let posts = [];
+
+  const unsubscribe = store.subscribe((value) => {
+    posts = value;
+  });
 
   const handleOnCreatePost = ({ detail }) => {
     posts = [...posts, detail];
