@@ -1,13 +1,7 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import { markPostAsViewed } from '../../store';
   import Badge from './Badge.svelte';
   export let post;
-
-  const dispatch = createEventDispatcher();
-
-  const handleMarkAsChecked = () => {
-    dispatch('onMarkAsChecked', post);
-  };
 </script>
 
 <article>
@@ -24,7 +18,9 @@
   <p>{post.description}</p>
   <footer>
     {#if !post.checked}
-      <button on:click={handleMarkAsChecked} class="secondary">Mark as checked</button>
+      <button on:click={() => markPostAsViewed(post)} class="secondary"
+        >Mark as checked</button
+      >
     {/if}
   </footer>
 </article>

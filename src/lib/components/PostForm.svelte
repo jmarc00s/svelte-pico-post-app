@@ -5,7 +5,6 @@
   let description;
 
   const handleSubmit = () => {
-    //dispatch('onCreatePost', { title, description });
     addPost({ title, description });
     title = '';
     description = '';
