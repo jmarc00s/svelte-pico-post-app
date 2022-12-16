@@ -1,9 +1,10 @@
 <script>
   import { useNavigate } from 'svelte-navigator';
+  import { fade } from 'svelte/transition';
   import { addPost } from '../../store';
 
-  let title;
-  let description;
+  let title = '';
+  let description = '';
   let goToPosts = true;
   const navigate = useNavigate();
 
@@ -27,10 +28,12 @@
 
   <label for="goToPosts">
     <input type="checkbox" bind:checked={goToPosts} />
-    Go to posts when creating ?
+    Go to posts after creating ?
   </label>
 
-  <input type="submit" value="Create post" />
+  {#if title.length && description.length}
+    <input transition:fade={{ duration: 150 }} type="submit" value="Create post" />
+  {/if}
 </form>
 
 <style>

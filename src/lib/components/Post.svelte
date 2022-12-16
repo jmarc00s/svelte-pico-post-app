@@ -5,7 +5,7 @@
   export let post;
 </script>
 
-<article transition:fade={{ duration: 400 }}>
+<article transition:fade={{ duration: 200 }}>
   <header>
     <div>
       <h4>{post.title}</h4>
@@ -25,7 +25,7 @@
   <footer>
     {#if !post.checked}
       <button
-        transition:fade={{ duration: 300 }}
+        transition:fade={{ duration: 200 }}
         on:click={() => markPostAsViewed(post)}
         class="secondary">Mark as Seen</button
       >
