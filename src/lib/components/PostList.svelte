@@ -1,4 +1,5 @@
 <script>
+  import { onDestroy } from 'svelte';
   import { store } from '../../store';
   import Post from './Post.svelte';
 
@@ -7,6 +8,8 @@
   const unsubscribe = store.subscribe((value) => {
     posts = value;
   });
+
+  onDestroy(() => unsubscribe());
 </script>
 
 <div class="grid">
