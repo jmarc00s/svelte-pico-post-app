@@ -1,5 +1,6 @@
 <script>
   import { onDestroy } from 'svelte';
+  import { fade } from 'svelte/transition';
   import { store } from '../../store';
   import Post from './Post.svelte';
 
