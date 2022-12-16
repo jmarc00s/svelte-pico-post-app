@@ -1,3 +1,11 @@
-<section class="container flex flex-col">
+<main class="container">
   <slot />
-</section>
+</main>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+</style>
