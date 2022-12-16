@@ -1,17 +1,12 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import { addPost } from '../../store';
 
-  const dispatch = createEventDispatcher();
   let title;
   let description;
 
-  const handleSubmit = (event) => {
-    console.log({
-      title,
-      description,
-    });
-
-    dispatch('onCreatePost', { title, description });
+  const handleSubmit = () => {
+    //dispatch('onCreatePost', { title, description });
+    addPost({ title, description });
     title = '';
     description = '';
   };
