@@ -24,7 +24,7 @@
   <input type="text" name="title" bind:value={title} />
 
   <label for="description">Description</label>
-  <textarea type="text" name="description" bind:value={description} />
+  <textarea name="description" bind:value={description} />
 
   <label for="goToPosts">
     <input type="checkbox" bind:checked={goToPosts} />
